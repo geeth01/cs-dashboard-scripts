@@ -1,8 +1,13 @@
 # sbom-list
 
-Aggregates Snyk SBOM + vulnerability data, reconciles it against Jira, computes SLA compliance, and
-writes the daily compliance Sheet + Slack alerts. This repo **writes** the Google Sheet that
-`cs-security-compliance-dashboard` reads.
+Aggregates Snyk SBOM + vulnerability data and writes the daily compliance Sheet via Google Apps
+Script. This repo **writes** the Google Sheet that `cs-security-compliance-dashboard` reads.
+
+> **Moved out (2026-06-15):** the Jira compliance / SLA-breach / chart Python
+> (`jira_compliance_daily.py`, `jira_sla_breach_label.py`, `jira_breach_latency_averages.py`,
+> `compliance_workbook_charts.py`, `jira_metrics_queries.json`, and their reconcile/probe helpers)
+> now live in **`cs-security-compliance-dashboard`**. sbom-list keeps the SBOM/Snyk Python and the
+> `.gs` Apps Scripts only.
 
 ## Stack & run
 - Python 3 (pandas, gspread, slack-sdk, matplotlib, requests) + Google Apps Script (`*.gs`).
@@ -17,11 +22,9 @@ writes the daily compliance Sheet + Slack alerts. This repo **writes** the Googl
 
 ## Key files
 - `sbom_report.py` — Snyk component/vuln aggregation per product mapping.
-- `jira_compliance_daily.py` — daily % fixed-within-SLA per Jira project.
-- `jira_sla_breach_label.py` — applies `sla-breached` label to tickets resolved past SLA.
-- `compliance_workbook_charts.py` — compliance charts into the Sheet.
-- `jira_breach_latency_averages.py`, `sla_breach_reconcile.py` — latency stats / reconciliation.
-- `mappings.json`, `jira_metrics_queries.json` — product mappings + JQL templates.
+- `sbom_list_product.py` — per-product SBOM listing.
+- `mappings.json` — product mappings.
+- `delete_slack_messages.py` — Slack message cleanup utility.
 - Apps Scripts (deployed to Google, not run locally): `SBOM.gs` (9 AM refresh),
   `JiraComplianceDaily.gs` (SNYK/SCA cols A–K), `JiraComplianceDailyVapt.gs` (VAPT cols M–W; combined
   Y–AH), `JiraSlaBreachLabel.gs`.
