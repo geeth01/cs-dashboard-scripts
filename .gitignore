@@ -26,3 +26,7 @@ venv/
 .DS_Store
 *.swp
 .idea/
+
+# --- Scratch / unnamed files ---
+Untitled
+**/Untitled
