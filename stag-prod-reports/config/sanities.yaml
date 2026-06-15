@@ -1,0 +1,269 @@
+bucket: sanity-reports-and-screenshots
+
+# S3 prefix = {environment}{sanityCode}  e.g. gcpProd + VenusUIAssets = gcpProdVenusUIAssets
+#
+# To add a new sanity: copy any block, fill name + codes, set enabled: true.
+# To skip an environment for a sanity: leave its value as "".
+# To disable a whole sanity: set enabled: false.
+#
+# Run discover_prefixes.py (on VPN) to verify prefixes actually exist in the bucket.
+
+sanities:
+
+  # ── UI sanities (codes confirmed) ─────────────────────────────────────────
+
+  - name: "Full Sanity - UI"
+    environments:
+      naStag:      "naStagVenusUI"
+      naProd:      "naProdVenusUI"
+      euProd:      "euProdVenusUI"
+      auProd:      "auProdVenusUI"
+      azureStag:   "azureStagVenusUI"
+      azureProd:   "azureProdVenusUI"
+      azureEuProd: "azureEuProdVenusUI"
+      gcpStag:     "gcpStagVenusUI"
+      gcpProd:     "gcpProdVenusUI"
+      gcpEuProd:   "gcpEuProdVenusUI"
+    enabled: true
+
+  - name: "Assets Full Sanity - UI"
+    environments:
+      naStag:      "naStagVenusUIAssets"
+      naProd:      "naProdVenusUIAssets"
+      euProd:      "euProdVenusUIAssets"
+      auProd:      "auProdVenusUIAssets"
+      azureStag:   "azureStagVenusUIAssets"
+      azureProd:   "azureProdVenusUIAssets"
+      azureEuProd: "azureEuProdVenusUIAssets"
+      gcpStag:     "gcpStagVenusUIAssets"
+      gcpProd:     "gcpProdVenusUIAssets"
+      gcpEuProd:   "gcpEuProdVenusUIAssets"
+    enabled: true
+
+  - name: "Search Full Sanity - UI"
+    environments:
+      naStag:      "naStagVenusUISearch"
+      naProd:      "naProdVenusUISearch"
+      euProd:      "euProdVenusUISearch"
+      auProd:      "auProdVenusUISearch"
+      azureStag:   "azureStagVenusUISearch"
+      azureProd:   "azureProdVenusUISearch"
+      azureEuProd: "azureEuProdVenusUISearch"
+      gcpStag:     "gcpStagVenusUISearch"
+      gcpProd:     "gcpProdVenusUISearch"
+      gcpEuProd:   "gcpEuProdVenusUISearch"
+    enabled: true
+
+  - name: "Taxonomy Full Sanity - UI"
+    environments:
+      naStag:      "naStagVenusUITaxonomy"
+      naProd:      "naProdVenusUITaxonomy"
+      euProd:      "euProdVenusUITaxonomy"
+      auProd:      "auProdVenusUITaxonomy"
+      azureStag:   "azureStagVenusUITaxonomy"
+      azureProd:   "azureProdVenusUITaxonomy"
+      azureEuProd: "azureEuProdVenusUITaxonomy"
+      gcpStag:     "gcpStagVenusUITaxonomy"
+      gcpProd:     "gcpProdVenusUITaxonomy"
+      gcpEuProd:   "gcpEuProdVenusUITaxonomy"
+    enabled: true
+
+  - name: "Variants Full Sanity - UI"
+    environments:
+      naStag:      "naStagVenusUIVariants"
+      naProd:      "naProdVenusUIVariants"
+      euProd:      "euProdVenusUIVariants"
+      auProd:      "auProdVenusUIVariants"
+      azureStag:   "azureStagVenusUIVariants"
+      azureProd:   "azureProdVenusUIVariants"
+      azureEuProd: "azureEuProdVenusUIVariants"
+      gcpStag:     "gcpStagVenusUIVariants"
+      gcpProd:     "gcpProdVenusUIVariants"
+      gcpEuProd:   "gcpEuProdVenusUIVariants"
+    enabled: true
+
+  - name: "Extensions Full Sanity - UI"
+    environments:
+      naStag:      "naStagVenusUIExtensions"
+      naProd:      "naProdVenusUIExtensions"
+      euProd:      "euProdVenusUIExtensions"
+      auProd:      "auProdVenusUIExtensions"
+      azureStag:   "azureStagVenusUIExtensions"
+      azureProd:   "azureProdVenusUIExtensions"
+      azureEuProd: "azureEuProdVenusUIExtensions"
+      gcpStag:     "gcpStagVenusUIExtensions"
+      gcpProd:     "gcpProdVenusUIExtensions"
+      gcpEuProd:   "gcpEuProdVenusUIExtensions"
+    enabled: true
+
+  - name: "Releases20 Full Sanity - UI"
+    environments:
+      naStag:      "naStagVenusUIReleases20"
+      naProd:      "naProdVenusUIReleases20"
+      euProd:      "euProdVenusUIReleases20"
+      auProd:      "auProdVenusUIReleases20"
+      azureStag:   "azureStagVenusUIReleases20"
+      azureProd:   "azureProdVenusUIReleases20"
+      azureEuProd: "azureEuProdVenusUIReleases20"
+      gcpStag:     "gcpStagVenusUIReleases20"
+      gcpProd:     "gcpProdVenusUIReleases20"
+      gcpEuProd:   "gcpEuProdVenusUIReleases20"
+    enabled: true
+
+  - name: "AutoDraft Full Sanity - UI"
+    environments:
+      naStag:      "naStagVenusUIAutoDraft"
+      naProd:      "naProdVenusUIAutoDraft"
+      euProd:      "euProdVenusUIAutoDraft"
+      auProd:      "auProdVenusUIAutoDraft"
+      azureStag:   "azureStagVenusUIAutoDraft"
+      azureProd:   "azureProdVenusUIAutoDraft"
+      azureEuProd: "azureEuProdVenusUIAutoDraft"
+      gcpStag:     "gcpStagVenusUIAutoDraft"
+      gcpProd:     "gcpProdVenusUIAutoDraft"
+      gcpEuProd:   "gcpEuProdVenusUIAutoDraft"
+    enabled: true
+
+  # ── Pending: S3 code not yet confirmed ────────────────────────────────────
+  # Run discover_prefixes.py on VPN to identify the correct code suffix,
+  # then fill in the environments block and set enabled: true.
+
+  - name: "RTE Full Sanity - UI"
+    environments:
+      naStag:      ""
+      naProd:      ""
+      euProd:      ""
+      auProd:      ""
+      azureStag:   ""
+      azureProd:   ""
+      azureEuProd: ""
+      gcpStag:     ""
+      gcpProd:     ""
+      gcpEuProd:   ""
+    enabled: false
+
+  - name: "CMA Full Sanity - API"
+    environments:
+      naStag:      ""
+      naProd:      ""
+      euProd:      ""
+      auProd:      ""
+      azureStag:   ""
+      azureProd:   ""
+      azureEuProd: ""
+      gcpStag:     ""
+      gcpProd:     ""
+      gcpEuProd:   ""
+    enabled: false
+
+  - name: "CMA API AutoDraft - API"
+    environments:
+      naStag:      ""
+      naProd:      ""
+      euProd:      ""
+      auProd:      ""
+      azureStag:   ""
+      azureProd:   ""
+      azureEuProd: ""
+      gcpStag:     ""
+      gcpProd:     ""
+      gcpEuProd:   ""
+    enabled: false
+
+  - name: "Taxonomy - API"
+    environments:
+      naStag:      ""
+      naProd:      ""
+      euProd:      ""
+      auProd:      ""
+      azureStag:   ""
+      azureProd:   ""
+      azureEuProd: ""
+      gcpStag:     ""
+      gcpProd:     ""
+      gcpEuProd:   ""
+    enabled: false
+
+  - name: "BulkDelete - API"
+    environments:
+      naStag:      ""
+      naProd:      ""
+      euProd:      ""
+      auProd:      ""
+      azureStag:   ""
+      azureProd:   ""
+      azureEuProd: ""
+      gcpStag:     ""
+      gcpProd:     ""
+      gcpEuProd:   ""
+    enabled: false
+
+  - name: "Release20 - API"
+    environments:
+      naStag:      ""
+      naProd:      ""
+      euProd:      ""
+      auProd:      ""
+      azureStag:   ""
+      azureProd:   ""
+      azureEuProd: ""
+      gcpStag:     ""
+      gcpProd:     ""
+      gcpEuProd:   ""
+    enabled: false
+
+  - name: "CMA Basic Sanity - API"
+    environments:
+      naStag:      ""
+      naProd:      ""
+      euProd:      ""
+      auProd:      ""
+      azureStag:   ""
+      azureProd:   ""
+      azureEuProd: ""
+      gcpStag:     ""
+      gcpProd:     ""
+      gcpEuProd:   ""
+    enabled: false
+
+  - name: "Search Full Sanity - API"
+    environments:
+      naStag:      ""
+      naProd:      ""
+      euProd:      ""
+      auProd:      ""
+      azureStag:   ""
+      azureProd:   ""
+      azureEuProd: ""
+      gcpStag:     ""
+      gcpProd:     ""
+      gcpEuProd:   ""
+    enabled: false
+
+  - name: "Search Variants Sanity - API"
+    environments:
+      naStag:      ""
+      naProd:      ""
+      euProd:      ""
+      auProd:      ""
+      azureStag:   ""
+      azureProd:   ""
+      azureEuProd: ""
+      gcpStag:     ""
+      gcpProd:     ""
+      gcpEuProd:   ""
+    enabled: false
+
+  - name: "Variants - API"
+    environments:
+      naStag:      ""
+      naProd:      ""
+      euProd:      ""
+      auProd:      ""
+      azureStag:   ""
+      azureProd:   ""
+      azureEuProd: ""
+      gcpStag:     ""
+      gcpProd:     ""
+      gcpEuProd:   ""
+    enabled: false
