@@ -1,0 +1,46 @@
+SBOM Google Apps Script — setup (no Python)
+=============================================
+
+1) Open your Google Sheet > Extensions > Apps Script. Paste SBOM.gs, save.
+
+2) Script properties (File > Project settings > Script properties):
+   - SNYK_TOKEN = your Snyk API token (required)
+
+   Optional:
+   - SNYK_API_BASE = https://api.snyk.io/rest (default)
+   - SNYK_API_VERSION = 2024-10-15
+   - SNYK_SBOM_API_VERSION = 2024-08-22
+
+3) Mappings: edit the MAPPINGS array at the top of SBOM.gs to match mappings.json
+   (snykOrg, jiraProject, repos). Each row includes sbomListSheet: the tab name for
+   that row’s SBOM library list. Two MKT rows: marketplace -> SBOM_LIST_MKT,
+   contentstack-ghost (delivery/preset repos) -> SBOM_LIST_MKT_GHOST.
+
+   Repo filtering: rows with repos: [] include all Snyk projects in that org. Rows with
+   a non-empty repos list use flexible matching (extra project fields + path/slug
+   variants) so names like org/repo match Snyk metadata. That logic applies only when
+   repos is specified — not for empty-repo products.
+
+   Vuln Issue Count / Unique Vuln Count: org-wide when repos is empty. When repos
+   lists specific paths, counts only include issues tied to those filtered projects
+   (same scope as SBOM), so ghost MKT/VB/VP/COMS rows can differ.
+
+4) List tabs: one sheet per sbomListSheet value (21 products). Hyperlinks use the
+   Product column text to pick the tab (so MKT marketplace vs MKT ghost link correctly).
+
+5) First run: SBOM > Refresh report + lists + hyperlinks (or each step separately).
+   Authorize external requests when prompted.
+
+6) Product list sheets: A–C = SBOM from row 1 (Product, Name, Version). Column F =
+   org-wide vulnerable package@version list from F1 (title, then header, then rows) —
+   parallel to the SBOM block, not below thousands of SBOM rows. Unique SBOM Count and
+   Unique Vuln Count both link to the same tab (#gid); scroll right to column F for vulns.
+
+7) Daily 9:00 AM: File > Project settings > Time zone, then SBOM > Create daily 9:00 AM
+   trigger. The daily job refreshes data and re-applies hyperlinks on Unique SBOM Count.
+
+8) SBOM_REPORT columns: Snapshot_Date, Product, Total SBOM Count, Unique SBOM Count,
+   Vuln Issue Count, Unique Vuln Count (no SLA column — same as before).
+
+9) Apps Script limits: ~6 min execution per run; many projects/SBOM calls may approach
+   the limit. Snyk rate limits may apply (script retries 429s).

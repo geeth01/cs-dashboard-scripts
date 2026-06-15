@@ -1,0 +1,8 @@
+pandas>=2.0
+numpy>=1.26
+matplotlib>=3.8
+gspread>=6.0.0
+google-auth>=2.0.0
+slack-sdk>=3.27
+python-dotenv>=1.0.0
+requests>=2.31.0

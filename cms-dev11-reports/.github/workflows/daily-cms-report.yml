@@ -1,0 +1,51 @@
+name: Daily Dev11 CMS Report
+
+on:
+  schedule:
+    # Mon–Fri 9:30pm UTC = Tue–Sat 3:00am IST
+    # Each run processes the current UTC date (= previous day in IST morning)
+    - cron: '30 21 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'Date to process (YYYY-MM-DD). Defaults to today UTC.'
+        required: false
+      force_test_count:
+        description: 'Also update FY27TC test counts (normally only runs on Fridays).'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  update-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install gspread google-auth slack-sdk certifi
+
+      - name: Resolve report date
+        id: date
+        run: |
+          DATE="${{ github.event.inputs.date }}"
+          if [ -z "$DATE" ]; then DATE=$(date -u +%Y-%m-%d); fi
+          echo "value=$DATE" >> "$GITHUB_OUTPUT"
+          echo "Processing date: $DATE"
+
+      - name: Write Google credentials
+        run: echo '${{ secrets.CREDENTIALS_JSON }}' > jiraproject-key.json
+
+      - name: Run report
+        env:
+          START_DATE: ${{ steps.date.outputs.value }}
+          END_DATE: ${{ steps.date.outputs.value }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
+          FORCE_TEST_COUNT: ${{ github.event.inputs.force_test_count }}
+        run: python dev11-build-send-cms-table-jenkins-fy27-thread.py

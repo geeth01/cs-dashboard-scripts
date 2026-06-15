@@ -1,0 +1,22 @@
+[
+  { "snykOrg": "contentstack-automations", "jiraProject": "AH", "repos": [] },
+  { "snykOrg": "contentstack-dam", "jiraProject": "AM", "repos": [] },
+  { "snykOrg": "contentstack-dataengineering", "jiraProject": "DAT", "repos": [] },
+  { "snykOrg": "contentstack-org-admin", "jiraProject": "OAA", "repos": [] },
+  { "snykOrg": "contentstack-genies", "jiraProject": "CMA", "repos": [] },
+  { "snykOrg": "contentstack-cda", "jiraProject": "CD", "repos": [] },
+  { "snykOrg": "contentstack-reignite", "jiraProject": "RS", "repos": [] },
+  { "snykOrg": "contentstack-eclipse", "jiraProject": "ECL", "repos": [] },
+  { "snykOrg": "contentstack-contentfly", "jiraProject": "CL", "repos": [] },
+  { "snykOrg": "contentstack-marketplace", "jiraProject": "MKT", "repos": [] },
+  { "snykOrg": "contentstack-datascience", "jiraProject": "CSI", "repos": [] },
+  { "snykOrg": "contentstack-devex", "jiraProject": "DX", "repos": [] },
+  { "snykOrg": "contentstack-polaris", "jiraProject": "AO", "repos": [] },
+  { "snykOrg": "contentstack-superadmin", "jiraProject": "SS", "repos": [] },
+  { "snykOrg": "contentstack-ghost", "jiraProject": "MKT", "repos": ["contentstack/delivery-sdk-plugins", "contentstack/marketplace-image-preset-builder-app"] },
+  { "snykOrg": "contentstack-ghost", "jiraProject": "VB", "repos": ["contentstack/visual-builder", "contentstack/visual-editor", "contentstack/schema-form", "contentstack/live-preview-sdk"] },
+  { "snykOrg": "contentstack-ghost", "jiraProject": "VP", "repos": ["contentstack/advance-broadcast-message", "contentstack/adv-post-message", "contentstack/preview-rest-api", "contentstack/preview-api", "contentstack/live-preview-sanity", "contentstack/release-preview-client", "contentstack/shopify-lp-marketplace-app", "contentstack/shopify-live-preview-middleware", "contentstack/shopify-live-preview-sdk"] },
+  { "snykOrg": "contentstack-ghost", "jiraProject": "COMS", "repos": ["contentstack/composable-studio-built-in-canvas", "contentstack/studio-starter-app-spend-guard", "contentstack/studio-workflow-demo-app", "contentstack/use-responsive-dimension", "contentstack/composable-studio-api", "contentstack/composable-extented", "contentstack/composable-studio", "contentstack/composable-studio-sdk"] },
+  { "snykOrg": "contentstack-growth", "jiraProject": "GROW", "repos": [] },
+  { "snykOrg": "contentstack-venus", "jiraProject": "EXP", "repos": [] }
+]

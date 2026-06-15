@@ -1,0 +1,28 @@
+# --- Secrets / credentials (NEVER commit) ---
+.env
+.env.*
+!.env.example
+*key*.json
+*-key.json
+service-account*.json
+**/service-account*.json
+json-key.json
+jiraproject-key.json
+*.pem
+credentials*.json
+
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+
+# --- Data exports / generated artifacts (data, not code) ---
+*.csv
+
+# --- OS / editor junk ---
+.DS_Store
+*.swp
+.idea/

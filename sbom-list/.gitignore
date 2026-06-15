@@ -1,0 +1,9 @@
+.env
+*.csv
+.venv/
+venv/
+__pycache__/
+*.pyc
+# Service account keys (path used by compliance_workbook_charts.py)
+service-account.json
+**/service-account*.json
